@@ -1,0 +1,80 @@
+﻿@using ViewModels
+@model IEnumerable<StudentViewModel>
+
+
+<div class="app-inner-layout__header-boxed p-0">
+    <div class="app-inner-layout__header page-title-icon-rounded text-white bg-vicious-stance mb-4">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon"><i class=" pe-7s-plugin icon-gradient bg-malibu-beach"></i></div>
+                    <div>
+                        Students
+                    </div>  
+                </div>
+                <div class="page-title-actions">
+                    @*<a href="add-student.html" data-toggle="tooltip" title="" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark mm-active" data-original-title="Create New">
+                        <i class="fa fa-plus"></i>
+                    </a>*@
+                    @Html.ActionLink("Create New", "Add", "Student", null, new { @class = "btn-shadow mr-3 btn btn-dark mm-active" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Students Index</h5>
+
+                <table class="mb-2 table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>E-mail</th>
+                            <th>CLass</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (StudentViewModel Student in Model)
+                        {
+                            <tr>
+                                <th scope="row">@Student.ID</th>
+                                <td>@Student.Name</td>
+                                <td>@Student.Phone</td>
+                                <td>@Student.Email</td>
+                                <td>@Student.ClassRoom.Name</td>
+                                <td>
+                                    <div class=" dropdown">
+                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-icon btn-icon-only btn btn-link">
+                                            <i class="pe-7s-more btn-icon-wrapper"></i>Settings
+                                        </button>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-shadow dropdown-menu-hover-link dropdown-menu kh-tb-drop">
+                                            @*<a href="#" class="dropdown-item mm-active">
+                                                <i class="dropdown-icon lnr-inbox"> </i><span>Edit</span>
+                                            </a>
+
+                                            <a href="#" class="dropdown-item">
+                                                <i class="dropdown-icon lnr-inbox"> </i><span>Delete</span>
+                                            </a>*@
+                                            @Html.ActionLink("Delete", "Delete", "Student", new { id = Student.ID }, new { @class = "dropdown-item" })
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                          
+
+                        </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,73 @@
+﻿@using ViewModels
+@model TeacherEditViewModel
+
+<div class="app-inner-layout__header-boxed p-0">
+    <div class="app-inner-layout__header page-title-icon-rounded text-white bg-vicious-stance mb-4">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon"><i class=" pe-7s-plugin icon-gradient bg-malibu-beach"></i></div>
+                    <div>
+                        Add Teacher
+                        <div class="page-title-subheading">PLease Fill the Fields below to create a new  record </div>
+                    </div>
+                </div>
+                <div class="page-title-actions">
+                    <a href="teachers.html" data-toggle="tooltip" title="Go Back" data-placement="bottom"
+                       class="btn-shadow mr-3 btn btn-dark">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Add Record </h5>
+
+                @using (Html.BeginForm("Add", "Teacher", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="position-relative form-group">
+                                <label for="name" class="">Full Name</label>
+                                @*<input name="name" type="text" id="name" placeholder="..." class="form-control">*@
+                                @Html.TextBoxFor(i => i.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(i => i.Name)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="position-relative form-group">
+                                <label for="Phone" class="">Phone</label>
+                                @*<input name="Phone" type="text" id="Phone" placeholder="..." class="form-control">*@
+                                @Html.TextBoxFor(i => i.Phone, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(i => i.Phone)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="position-relative form-group">
+                                <label for="email" class="">E-mail</label>
+                                @*<input name="email" type="email" id="email" placeholder="..." class="form-control">*@
+                                @Html.TextBoxFor(i => i.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(i => i.Email)
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="btn-hover-shine btn btn-info btn-lg">Save</button>
+                }
+                </div>
+        </div>
+    </div>
+</div>
+
+

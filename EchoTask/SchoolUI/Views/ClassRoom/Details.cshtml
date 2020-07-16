@@ -1,0 +1,107 @@
+﻿@using ViewModels
+@model ClassRoomViewModel
+
+
+<div class="app-inner-layout__header-boxed p-0">
+    <div class="app-inner-layout__header page-title-icon-rounded text-white bg-vicious-stance mb-4">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon"><i class="pe-7s-home icon-gradient bg-malibu-beach"></i></div>
+                    <div>
+                        Home
+                        <div class="page-title-subheading">Here is the lessons table </div>
+                    </div>
+                </div>
+                <div class="page-title-actions">
+                    <a href="edit-table.html" data-toggle="tooltip" title="edit lessons table" data-placement="bottom"
+                       class="btn-shadow mr-3 btn btn-dark">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>@Model.Name :-</strong>  Lesson Table </h5>
+
+                <table class="mb-2 table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Days/Lessons</th>
+                            <th><strong>First Lesson</strong></th>
+                            <th><strong>Second Lesson</strong></th>
+                            <th><strong>Third Lesson</strong></th>
+                            <th><strong>Fourth Lesson</strong></th>
+                            <th><strong>Fifth Lesson</strong></th>
+                        </tr>
+                    </thead>
+                    @foreach (var ClassDay in Model.ClassDays)
+                    {
+                       foreach (var ClassLesson in ClassDay.ClassLessons)
+                        {
+                        }
+                    }
+                        <tbody>
+                            @foreach (var ClassDay in Model.ClassDays)
+                            {
+                                <tr>
+                                    <th><strong>@ClassDay.Day.Name</strong></th>
+                                    @foreach (var ClassLesson in ClassDay.ClassLessons)
+                                    {
+                                    <td>@ClassLesson.Subject.Name/<small>@ClassLesson.Teacher.Name</small></td>
+                                    }
+
+                                </tr>
+                            }
+                            @*<tr>
+                    <th><strong>Sunday</strong></th>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                </tr>
+                <tr>
+                    <th><strong>Monday</strong></th>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                </tr>
+                <tr>
+                    <th><strong>Tuseday</strong></th>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                </tr>
+                <tr>
+                    <th><strong>wednesday</strong></th>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                </tr>
+                <tr>
+                    <th><strong>Thursday</strong></th>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                    <td>Subject </br> <small>ClassRoom Name</small> </td>
+                </tr>*@
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>

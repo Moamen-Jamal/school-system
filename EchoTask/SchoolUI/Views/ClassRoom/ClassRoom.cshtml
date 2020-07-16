@@ -1,0 +1,82 @@
+﻿@using ViewModels
+@model IEnumerable<ClassRoomViewModel>
+
+
+
+<div class="app-inner-layout__header-boxed p-0">
+    <div class="app-inner-layout__header page-title-icon-rounded text-white bg-vicious-stance mb-4">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon"><i class=" pe-7s-plugin icon-gradient bg-malibu-beach"></i></div>
+                    <div>
+                        Classes
+
+                    </div>
+                </div>
+                <div class="page-title-actions">
+                    @Html.ActionLink("Create New", "Add", "ClassRoom", null, new { @class = "btn-shadow mr-3 btn btn-dark mm-active" })
+                    @*<a href="add-class.html" data-toggle="tooltip" title="" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark mm-active" data-original-title="Create New">
+                        <i class="fa fa-plus"></i>
+                    </a>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Classes Index</h5>
+
+                <table class="mb-2 table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th> </th>
+                            <th>Schdule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ClassRoomViewModel classRoom in Model)
+                        {
+                            
+                            <tr>
+                                <th scope="row">@classRoom.ID</th>
+                                <td>@classRoom.Name</td>
+                                <td>
+                                    <div class=" dropdown">
+                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-icon btn-icon-only btn btn-link">
+                                            <i class="pe-7s-more btn-icon-wrapper"></i>Settings
+                                        </button>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-shadow dropdown-menu-hover-link dropdown-menu kh-tb-drop">
+                                            @*<a href="#" class="dropdown-item mm-active">
+            <i class="dropdown-icon lnr-inbox"> </i><span>Edit</span>
+        </a>*@
+                                            @Html.ActionLink("Go To Schdule Table", "Details", "ClassRoom", new { id = classRoom.ID }, new { @class = "dropdown-item" })
+                                            @Html.ActionLink("Delete", "Delete", "ClassRoom", new { id = classRoom.ID }, new { @class = "dropdown-item" })
+                                            @*<a href="#" class="dropdown-item">
+            <i class="dropdown-icon lnr-inbox"> </i><span>Delete</span>
+        </a>*@
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Go To Schdule Table", "Details", "ClassRoom", new { id = classRoom.ID }, new { @class = "dropdown-item" })
+                                </td>
+                            </tr>
+                        }
+                            
+
+                        </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

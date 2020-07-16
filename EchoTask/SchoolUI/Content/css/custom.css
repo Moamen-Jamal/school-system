@@ -1,0 +1,14 @@
+.app-header__logo .logo-src {
+    height: 34px;
+    width: 100%;
+    background: url(../images/logo1.png) no-repeat !important;
+}
+.kh-tb-drop {
+	    min-width: 10rem !important;
+    right: 0px !important;
+    left: auto !important;
+    float: right;
+}
+.mt-4 {
+	margin-top: 20px
+}

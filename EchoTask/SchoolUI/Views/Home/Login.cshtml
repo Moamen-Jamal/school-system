@@ -1,0 +1,109 @@
+﻿@using ViewModels
+@model AdminEditViewModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Login  </title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="ArchitectUI HTML Bootstrap 4 Dashboard Template">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link href="~/Content/css/main.css" rel="stylesheet">
+    <link href="~/Content/css/custom.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow">
+        <div class="app-container">
+            <div class="h-100 bg-vicious-stance bg-animation">
+                <div class="d-flex h-100 justify-content-center align-items-center">
+                    <div class="mx-auto app-login-box col-md-8">
+                        <div class="modal-dialog w-100 mx-auto">
+                            @using (Html.BeginForm("Login", "Home"))
+                            {
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="h5 modal-title text-center">
+                                            <h4 class="mt-2">
+                                                <div>Welcome back,</div>
+                                                <span>Please sign in to your account below.</span>
+                                            </h4>
+                                        </div>
+
+                                        <div class="form-row text-center">
+                                            <div class="col-md-12">
+                                                <div class="position-relative form-group ">
+                                                    <label style="font-size:18px;text-align:center">UserName</label>
+                                                    @Html.TextBoxFor(i => i.UserName, new { @class = "form-control" })
+                                                    <br />
+                                                    @if (ViewBag.UserName != null)
+                                                    {
+                                                        <p style="color:red;text-align:center;"> @ViewBag.UserName</p>
+                                                    }
+                                                    @*<input name="email" id="exampleEmail" placeholder="UserName" type="email" class="form-control">*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="position-relative form-group">
+                                                    <label style="font-size:18px;text-align:center">Password</label>
+                                                    @Html.TextBoxFor(i => i.Password, new { @class = "form-control" })
+                                                    
+                                                    <br />
+                                                    @if (ViewBag.Password != null)
+                                                    {
+                                                        <p style="color:red;text-align:center;"> @ViewBag.Password</p>
+                                                    }
+                                                    @*<input name="password" id="examplePassword" placeholder="Password " type="password" class="form-control">*@
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="position-relative form-group">
+                                                    @if (ViewBag.IsAdmin != null)
+                                                    {
+                                                        <div class="red-text center error-message" style="color:red;">
+                                                             @ViewBag.IsAdmin
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative form-check">
+                                            @*<input name="check" id="exampleCheck" type="checkbox" class="form-check-input">
+                                            <label for="exampleCheck" class="form-check-label">Keep me logged in</label>*@
+                                        </div>
+
+
+                                    </div>
+                                    <div class="modal-footer clearfix">
+                                        <div class="float-left">
+                                            @*<a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a>*@
+                                        </div>
+                                        <div class="float-right">
+                                            <button type="submit" class="btn-hover-shine btn btn-info btn-lg">Login</button>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            }
+                            </div>
+                        <div class="text-center text-white opacity-8 mt-3">Copyright © School-MS 2020</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/scripts/main.d810cf0ae7f39f28f336.js"></script>
+</body>
+
+</html>
